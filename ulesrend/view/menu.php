@@ -39,7 +39,6 @@ else {
     </div>
   </div>
 </nav>
-asdasdadadasdas  asdasdasd as asdsad
 <?php
 if(isset($msg)) echo "<h2>$msg</h2>";
 ?>
