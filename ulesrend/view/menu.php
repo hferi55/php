@@ -1,3 +1,21 @@
+<script>
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "controller/hintek.php?q=" + str, true);
+    xmlhttp.send();
+  }
+}
+</script>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,8 +51,9 @@ else {
 ?>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search" onkeyup="showHint(this.value)">
         <button class="btn btn-outline-success" type="submit">Keresés</button>
+        <p>Suggestions: <span id="txtHint"></span></p>
       </form>
     </div>
   </div>

@@ -3,6 +3,7 @@
     <img src="uploads/15.jpg">
     <p>3. sor 5. hely</p>
 </div>
+
 <?php
     require_once 'model/osztaly.php';
 
